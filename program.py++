@@ -1,9 +1,4 @@
 include 'standard'
-include 'graphics.py'
-
-create_window()
-
-include 'standard'
 
 class Car{
     define $struct(name, price, brand){
@@ -13,7 +8,11 @@ class Car{
     }
 
     define start(){
-        stdout('VROOM!', this.name)
+        stdout('VROOM!')
     }
 
 }
+
+let car = new Car("BMW", 100000, "IX5")
+
+car.start()

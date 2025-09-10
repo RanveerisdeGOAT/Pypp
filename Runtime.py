@@ -43,7 +43,7 @@ class ClassObject:
         if constructor:
             # Bind the constructor method to the new instance and execute it
             bound_constructor = UserDefinedFunction(constructor, instance.env)
-            interpreter.execute_function(bound_constructor, args, self_env=instance.env)
+            interpreter.execute_function(bound_constructor, args, node, self_env=instance.env)
         return instance
 
     def __repr__(self): return f"<class {self.name}>"
@@ -206,7 +206,7 @@ class Interpreter:
 
     def execute_function(self, user_func, args, node, self_env=None):
         func_decl, func_env = user_func.declaration, Environment(parent=self_env or user_func.closure)
-        if self_env: func_env.declare("this", self_env.lookup("this"), node, is_constant=True)
+        if self_env: func_env.declare("this", self_env.lookup("this", node), node, is_constant=True)
         for param, arg in zip(func_decl.params.params, args): func_env.declare(param.name, node, arg)
         prev_env = self.environment; self.environment = func_env
         try:
