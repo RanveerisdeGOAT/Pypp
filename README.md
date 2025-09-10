@@ -1,5 +1,5 @@
 <h1>Py++</h1>
-<p>A Python based interpreter with basic high-level language usage</p><br>
+<p>A Python based interpreter with basic high-level language concepts</p><br>
 <small>there's nothing "++" about it, just a silly name</small><br>
 <br>
 Py++ 2025<br>
